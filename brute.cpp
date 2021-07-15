@@ -27,9 +27,10 @@ void print_wall() {
     int i, j;
     for (i=1; i<=N; i++) {
         for (j=1; j<=i; j++)
-            cout << wall[i][j];
-        cout << endl;
+            cerr << wall[i][j];
+        cerr << endl;
     }
+    cerr << "-------------------" << endl;
 }
 
 int main() {
@@ -44,11 +45,13 @@ int main() {
         cin >> c >> l;
         paint(c, l);
     }
+    print_wall();
 
     cin >> Q;
     for (i=0; i<Q; i++) {
         cin >> x >> y;
         cout << get_color(x, y) << endl;
     }
+
     return 0;
 }
