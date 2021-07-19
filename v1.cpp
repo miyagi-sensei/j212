@@ -36,6 +36,6 @@ int main() {
 		} else {
 			cout << "G" << endl;
 		}
-			
+
 	}
 }
