@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
-#define MAXN 200000
 
 int N, P, Q;
 int Red[200001], Blue[200001], Green[200001];
 
 int main() {
-  int i, j, l;
+    int i, j, l;
 	char color;
 	cin >> N >> P;
 
