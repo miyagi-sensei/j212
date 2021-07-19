@@ -1,38 +1,42 @@
 #include <iostream>
 using namespace std;
+#define MAXN 200000
 
 int N, P, Q;
 int Red[200001], Blue[200001], Green[200001];
 
 int main() {
-    char color;
-    int i, l, x, y, ri, bi, gi;
-    cin >> N >> P;
-    for (i=1; i<=P; i++) {
-        cin >> color >> l;
-        if (color == 'R') {
-            Red[l] = i;
-        } else if (color == 'B') {
-            Blue[l] = i;
-        } else {
-            Green[l] = i;
-        }
-    }
-    cin >> Q;
-    for (i=0; i<Q; i++) {
-        cin >> x >> y;
-        ri = x - y + 1;
-        bi = N - x + 1;
-        gi = y;
-        if (Red[ri] + Blue[bi] + Green[gi] == 0) {
-            cout << "W" << endl;
-        } else if (Red[ri] > Blue[bi] && Red[ri] > Green[gi]) {
-            cout << "R" << endl;
-        } else if (Blue[bi] > Red[ri] && Blue[bi] > Green[gi]) {
-            cout << "B" << endl;
-        } else {
-            cout << "G" << endl;
-        }
-    }
-    return 0;
+  int i, j, l;
+	char color;
+	cin >> N >> P;
+
+	for (i=1; i<=P; i++) {
+		cin >> color >> l;
+		if (color == 'R') {
+			Red[l] = i;
+		} else if (color == 'B') {
+			Blue[l] = i;
+		} else {
+			Green[l] = i;
+		}
+	}
+
+	cin >> Q;
+	int r, c, lr, lb, lg;
+	for (i=0; i<Q; i++) {
+		cin >> r >> c;
+		lr = r - c + 1;
+		lb = N - r + 1;
+		lg = c;
+		if (Red[lr] + Blue[lb] + Green[lg] == 0) {
+			cout << "W" << endl;
+		} else if (Red[lr] > Blue[lb] && Red[lr] > Green[lg]) {
+			cout << "R" << endl;
+		} else if (Blue[lb] > Red[lr] && Blue[lb] > Green[lg]) {
+			cout << "B" << endl;
+		} else {
+			cout << "G" << endl;
+		}
+			
+	}
 }
