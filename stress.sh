@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# solution.cpp  solution you want to stress test
+# v1.cpp  solution you want to stress test
 # brute.cpp    stupid solution for the problem
 # gen.py       generates a new random test case for the problem
 
 # compile all programs first
-g++ demo.cpp
+g++ v1.cpp
 g++ brute.cpp -o brute
 # g++ gen.cpp -o gen
 
-for ((i = 1; ;i++)) do
+while true
+do
   # generate a new test case in the file named "in"
   python3 gen.py > in
   # redirect the solution output to the "out" file
