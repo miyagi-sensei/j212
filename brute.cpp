@@ -4,12 +4,12 @@ using namespace std;
 
 int N, P, Q;
 char wall[MAXN+1][MAXN+1];
-void paint(char c, int l) {
+void paint(char color, int l) {
     int i, r;
-    if (c == 'R') {
+    if (color == 'R') {
         for (i=0; i<=N-l; i++)
             wall[l+i][i+1] = 'R';
-    } else if (c == 'G') {
+    } else if (color == 'G') {
         for (i=l; i<=N; i++)
             wall[i][l] = 'G';
     } else {
@@ -17,10 +17,6 @@ void paint(char c, int l) {
         for (i=1; i<=r; i++)
             wall[r][i] = 'B';
     }
-}
-
-char get_color(int x, int y) {
-    return wall[x][y];
 }
 
 void print_wall() {
@@ -34,23 +30,23 @@ void print_wall() {
 }
 
 int main() {
-    int i, j, l, x, y;
-    char c;
+    int i, j, l, r, c;
+    char color;
     cin >> N >> P;
     for (i=1; i<=N; i++)
         for (j=1; j<=N; j++)
             wall[i][j] = 'W';
 
     for (i=0; i<P; i++) {
-        cin >> c >> l;
-        paint(c, l);
+        cin >> color >> l;
+        paint(color, l);
     }
     print_wall();
 
     cin >> Q;
     for (i=0; i<Q; i++) {
-        cin >> x >> y;
-        cout << get_color(x, y) << endl;
+        cin >> r >> c;
+        cout << wall[r][c] << endl;
     }
 
     return 0;
